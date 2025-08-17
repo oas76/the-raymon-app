@@ -1,0 +1,35 @@
+{
+  "name": "the-raymon-app",
+  "version": "1.0.0",
+  "description": "A comprehensive authentication and profile management service for golfers",
+  "main": "index.js",
+  "scripts": {
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm start",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm start"
+  },
+  "keywords": [
+    "golf",
+    "authentication",
+    "oauth",
+    "express",
+    "react",
+    "mongodb"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/golf-auth-service.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/golf-auth-service/issues"
+  },
+  "homepage": "https://github.com/your-username/golf-auth-service#readme"
+}

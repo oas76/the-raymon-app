@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: the-raymon-app
+    env: node
+    buildCommand: npm run install-all && cd frontend && npm run build
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: FRONTEND_URL
+        value: https://the-raymon-app.onrender.com
+      - key: MONGO_URI
+        fromDatabase:
+          name: raymon-mongodb
+          property: connectionString
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: JWT_SECRET
+        generateValue: true
+
+databases:
+  - name: raymon-mongodb
+    databaseName: raymon_app
+    user: raymon_user
