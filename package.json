@@ -8,12 +8,14 @@
     "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
     "backend": "cd backend && npm run dev",
     "frontend": "cd frontend && npm start",
-    "build": "cd frontend && npm run build",
+    "build": "cd frontend && npm install && npm run build",
     "start": "cd backend && npm start",
     "commit": "./scripts/commit-and-push.sh",
     "save": "./scripts/commit-and-push.sh",
     "git-status": "git status",
-    "git-log": "git log --oneline -10"
+    "git-log": "git log --oneline -10",
+    "vercel-build": "cd frontend && npm install && npm run build",
+    "railway-build": "npm run install-all && cd frontend && npm run build"
   },
   "keywords": [
     "golf",
@@ -26,14 +28,6 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "concurrently": "^7.6.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/your-username/golf-auth-service.git"
-  },
-  "bugs": {
-    "url": "https://github.com/your-username/golf-auth-service/issues"
-  },
-  "homepage": "https://github.com/your-username/golf-auth-service#readme"
+    "concurrently": "^8.2.2"
+  }
 }
