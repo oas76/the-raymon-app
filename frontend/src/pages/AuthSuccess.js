@@ -13,7 +13,6 @@ import axios from 'axios';
 const AuthSuccess = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const { user } = useAuth();
   const [error, setError] = useState('');
 
   useEffect(() => {

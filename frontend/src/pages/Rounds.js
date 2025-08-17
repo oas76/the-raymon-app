@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   Container,
   Typography,
@@ -55,9 +55,9 @@ const Rounds = () => {
     if (isAuthenticated) {
       fetchRounds();
     }
-  }, [isAuthenticated, filters]);
+  }, [isAuthenticated, filters, fetchRounds]);
 
-  const fetchRounds = async () => {
+  const fetchRounds = useCallback(async () => {
     try {
       setLoading(true);
       setError('');
@@ -83,7 +83,7 @@ const Rounds = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [filters]);
 
   const handleFilterChange = (field, value) => {
     setFilters(prev => ({
