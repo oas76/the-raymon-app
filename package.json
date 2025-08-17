@@ -9,7 +9,11 @@
     "backend": "cd backend && npm run dev",
     "frontend": "cd frontend && npm start",
     "build": "cd frontend && npm run build",
-    "start": "cd backend && npm start"
+    "start": "cd backend && npm start",
+    "commit": "./scripts/commit-and-push.sh",
+    "save": "./scripts/commit-and-push.sh",
+    "git-status": "git status",
+    "git-log": "git log --oneline -10"
   },
   "keywords": [
     "golf",
