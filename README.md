@@ -1,5 +1,7 @@
 # The Raymon App
 
+**🌐 GitHub Repository**: https://github.com/oas76/the-raymon-app
+
 A comprehensive authentication and profile management service for golfers, featuring OAuth integration with Google, Facebook, and Vipps (planned), along with secure user profile management.
 
 ## Features
