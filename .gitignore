@@ -70,3 +70,4 @@ backend/uploads/
 
 # Other
 .nyc_output/
+.vercel
