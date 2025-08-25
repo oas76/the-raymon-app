@@ -51,12 +51,6 @@ const Rounds = () => {
     limit: 12
   });
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      fetchRounds();
-    }
-  }, [isAuthenticated, filters, fetchRounds]);
-
   const fetchRounds = useCallback(async () => {
     try {
       setLoading(true);
@@ -84,6 +78,12 @@ const Rounds = () => {
       setLoading(false);
     }
   }, [filters]);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      fetchRounds();
+    }
+  }, [isAuthenticated, filters, fetchRounds]);
 
   const handleFilterChange = (field, value) => {
     setFilters(prev => ({

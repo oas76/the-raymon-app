@@ -7,7 +7,7 @@ import {
   Typography, 
   Alert 
 } from '@mui/material';
-import { useAuth } from '../contexts/AuthContext';
+
 import axios from 'axios';
 
 const AuthSuccess = () => {
