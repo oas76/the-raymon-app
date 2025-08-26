@@ -7,14 +7,11 @@ import {
   Typography,
   Box,
   Alert,
-  Divider,
   CircularProgress
 } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../contexts/AuthContext';
-import GoogleIcon from '@mui/icons-material/Google';
-import FacebookIcon from '@mui/icons-material/Facebook';
 
 const Register = () => {
   const { register: registerUser, isAuthenticated } = useAuth();
@@ -59,10 +56,6 @@ const Register = () => {
     }
   };
 
-  const handleOAuthLogin = (provider) => {
-    window.location.href = `${process.env.REACT_APP_API_URL || 'http://localhost:5000/api'}/auth/${provider}`;
-  };
-
   if (isAuthenticated) {
     return null; // Will redirect via useEffect
   }
@@ -84,72 +77,6 @@ const Register = () => {
             {error}
           </Alert>
         )}
-
-        {/* OAuth Registration Buttons */}
-        <Box sx={{ mb: 3 }}>
-          <Button
-            fullWidth
-            variant="outlined"
-            startIcon={<GoogleIcon />}
-            onClick={() => handleOAuthLogin('google')}
-            sx={{ 
-              mb: 2,
-              py: 1.5,
-              borderColor: '#db4437',
-              color: '#db4437',
-              '&:hover': {
-                borderColor: '#db4437',
-                backgroundColor: 'rgba(219, 68, 55, 0.04)'
-              }
-            }}
-          >
-            Sign up with Google
-          </Button>
-          
-          <Button
-            fullWidth
-            variant="outlined"
-            startIcon={<FacebookIcon />}
-            onClick={() => handleOAuthLogin('facebook')}
-            sx={{ 
-              mb: 2,
-              py: 1.5,
-              borderColor: '#3b5998',
-              color: '#3b5998',
-              '&:hover': {
-                borderColor: '#3b5998',
-                backgroundColor: 'rgba(59, 89, 152, 0.04)'
-              }
-            }}
-          >
-            Sign up with Facebook
-          </Button>
-
-          <Button
-            fullWidth
-            variant="outlined"
-            onClick={() => handleOAuthLogin('vipps')}
-            disabled
-            sx={{ 
-              mb: 2,
-              py: 1.5,
-              borderColor: '#ff5b24',
-              color: '#ff5b24',
-              '&:hover': {
-                borderColor: '#ff5b24',
-                backgroundColor: 'rgba(255, 91, 36, 0.04)'
-              }
-            }}
-          >
-            Sign up with Vipps (Coming Soon)
-          </Button>
-        </Box>
-
-        <Divider sx={{ my: 3 }}>
-          <Typography variant="body2" color="text.secondary">
-            OR
-          </Typography>
-        </Divider>
 
         {/* Registration Form */}
         <form onSubmit={handleSubmit(onSubmit)}>

@@ -148,47 +148,7 @@ router.post('/login', [
   }
 });
 
-// Google OAuth routes
-router.get('/google', 
-  passport.authenticate('google', { scope: ['profile', 'email'] })
-);
-
-router.get('/google/callback',
-  passport.authenticate('google', { session: false }),
-  (req, res) => {
-    // Successful authentication
-    const token = generateToken(req.user._id);
-    
-    // Redirect to frontend with token
-    const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
-    res.redirect(`${frontendUrl}/auth/success?token=${token}&profileComplete=${req.user.isProfileComplete}`);
-  }
-);
-
-// Facebook OAuth routes
-router.get('/facebook',
-  passport.authenticate('facebook', { scope: ['email'] })
-);
-
-router.get('/facebook/callback',
-  passport.authenticate('facebook', { session: false }),
-  (req, res) => {
-    // Successful authentication
-    const token = generateToken(req.user._id);
-    
-    // Redirect to frontend with token
-    const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
-    res.redirect(`${frontendUrl}/auth/success?token=${token}&profileComplete=${req.user.isProfileComplete}`);
-  }
-);
-
-// Vipps OAuth routes (placeholder)
-router.get('/vipps', (req, res) => {
-  res.status(501).json({
-    success: false,
-    message: 'Vipps OAuth not implemented yet. Requires business agreement with Vipps.'
-  });
-});
+// OAuth routes removed - focusing on manual authentication only
 
 // Get current user
 router.get('/me', authenticate, async (req, res) => {
