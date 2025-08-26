@@ -39,7 +39,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   store: MongoStore.create({
-    mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost:27017/golf-auth-service'
+    mongoUrl: process.env.MONGODB_URI || process.env.MONGO_URI || 'mongodb://localhost:27017/golf-auth-service'
   }),
   cookie: {
     secure: process.env.NODE_ENV === 'production',
