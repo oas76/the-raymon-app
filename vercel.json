@@ -5,5 +5,11 @@
   "devCommand": "npm run frontend",
   "env": {
     "REACT_APP_API_URL": "https://the-raymon-app.onrender.com/api"
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
