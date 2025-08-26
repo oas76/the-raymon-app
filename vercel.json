@@ -4,6 +4,6 @@
   "installCommand": "npm install",
   "devCommand": "npm run frontend",
   "env": {
-    "REACT_APP_API_URL": "https://the-raymon-app-production.up.railway.app/api"
+    "REACT_APP_API_URL": "https://the-raymon-app.onrender.com/api"
   }
 }
