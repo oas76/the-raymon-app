@@ -6,13 +6,10 @@
   "env": {
     "REACT_APP_API_URL": "https://the-raymon-app.onrender.com/api"
   },
-  "routes": [
-    { 
-      "handle": "filesystem" 
-    },
-    { 
-      "src": "/(.*)", 
-      "dest": "/index.html" 
+  "rewrites": [
+    {
+      "source": "/((?!api/.*).*)",
+      "destination": "/index.html"
     }
   ]
 }
